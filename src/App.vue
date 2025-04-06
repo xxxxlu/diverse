@@ -7,7 +7,7 @@
       <div class="header-container">
         <div class="logo">
           <router-link to="/">
-            <!-- <img src="@/assets/logo.png" alt="Diverse Activewear" /> -->
+            <img src="./assets/pakdrop.png" alt="pakdrop" />
           </router-link>
         </div>
         <nav class="main-nav">
@@ -18,20 +18,7 @@
           </ul>
         </nav>
         <div class="header-actions">
-          <div class="search-bar">
-            <input type="text" placeholder="Search for products" />
-            <button type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
           <div class="user-actions">
-            <router-link to="/account" class="action-link">
-              <i class="fas fa-user"></i>
-            </router-link>
-            <router-link to="/wishlist" class="action-link">
-              <i class="fas fa-heart"></i>
-              <span class="badge">0</span>
-            </router-link>
             <router-link to="/cart" class="action-link">
               <i class="fas fa-shopping-cart"></i>
               <span class="badge">{{ cartItemCount }}</span>
