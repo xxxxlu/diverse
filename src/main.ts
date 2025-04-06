@@ -5,8 +5,10 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+// 使用类型断言来避免TypeScript错误
 new Vue({
+  el: '#app',
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+} as any)

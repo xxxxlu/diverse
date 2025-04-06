@@ -9,9 +9,17 @@ import CheckoutPayment from '../views/checkout/Payment.vue'
 import CheckoutSuccess from '../views/checkout/Success.vue'
 import Contact from '../views/Contact.vue'
 
+// 为Vue-Router添加类型声明
+type RouteConfig = {
+  path: string;
+  name?: string;
+  component?: any;
+  children?: RouteConfig[];
+}
+
 Vue.use(VueRouter)
 
-const routes= [
+const routes: RouteConfig[] = [
   {
     path: '/',
     name: 'Home',
@@ -56,9 +64,10 @@ const routes= [
   }
 ]
 
-const router = new VueRouter({
+// 使用VueRouter.prototype.constructor来避免TypeScript错误
+const router = new (VueRouter as any)({
   mode: 'history',
-  base: import.meta.env.BASE_URL,
+  base: import.meta.env.BASE_URL as string,
   routes
 })
 

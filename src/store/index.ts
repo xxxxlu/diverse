@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+// 移除未使用的导入
+// import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -15,24 +16,24 @@ export default new Vuex.Store({
     loading: false
   },
   getters: {
-    cartTotal: state => {
-      return state.cart.reduce((total, item) => {
+    cartTotal: (state: any) => {
+      return state.cart.reduce((total: number, item: any) => {
         return total + (item.price * item.quantity)
       }, 0)
     },
-    cartItemCount: state => {
-      return state.cart.reduce((count, item) => count + item.quantity, 0)
+    cartItemCount: (state: any) => {
+      return state.cart.reduce((count: number, item: any) => count + item.quantity, 0)
     }
   },
   mutations: {
-    SET_PRODUCTS(state, products) {
+    SET_PRODUCTS(state: any, products: any) {
       state.products = products
     },
-    SET_CURRENT_PRODUCT(state, product) {
+    SET_CURRENT_PRODUCT(state: any, product: any) {
       state.currentProduct = product
     },
-    ADD_TO_CART(state, { product, quantity, size }) {
-      const productInCart = state.cart.find(item =>
+    ADD_TO_CART(state: any, { product, quantity, size }: { product: any, quantity: number, size: string }) {
+      const productInCart = state.cart.find((item: any) =>
         item.id === product.id && item.size === size
       )
 
@@ -48,33 +49,33 @@ export default new Vuex.Store({
       // Save to localStorage
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
-    UPDATE_CART_ITEM(state, { productId, size, quantity }) {
-      const item = state.cart.find(item => item.id === productId && item.size === size)
+    UPDATE_CART_ITEM(state: any, { productId, size, quantity }: { productId: number, size: string, quantity: number }) {
+      const item = state.cart.find((item: any) => item.id === productId && item.size === size)
       if (item) {
         item.quantity = quantity
       }
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
-    REMOVE_FROM_CART(state, { productId, size }) {
-      state.cart = state.cart.filter(item => !(item.id === productId && item.size === size))
+    REMOVE_FROM_CART(state: any, { productId, size }: { productId: number, size: string }) {
+      state.cart = state.cart.filter((item: any) => !(item.id === productId && item.size === size))
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
-    CLEAR_CART(state) {
+    CLEAR_CART(state: any) {
       state.cart = []
       localStorage.removeItem('cart')
     },
-    LOAD_CART(state) {
+    LOAD_CART(state: any) {
       const savedCart = localStorage.getItem('cart')
       if (savedCart) {
         state.cart = JSON.parse(savedCart)
       }
     },
-    SET_LOADING(state, isLoading) {
+    SET_LOADING(state: any, isLoading: boolean) {
       state.loading = isLoading
     }
   },
   actions: {
-    loadProducts({ commit }) {
+    loadProducts({ commit }: { commit: any }) {
       commit('SET_LOADING', true)
       // In a real app, we would fetch from an API
       // For now, let's simulate with the demo data
@@ -84,12 +85,15 @@ export default new Vuex.Store({
         commit('SET_LOADING', false)
       }, 500)
     },
-    getProduct({ commit, state }, productId) {
+    getProduct({ commit, state }: { commit: any, state: any }, productId: string | number) {
       commit('SET_LOADING', true)
+      
+      // 确保productId是数字类型进行比较
+      const numericProductId = typeof productId === 'string' ? parseInt(productId) : productId
 
       // First check if we already have the products loaded
       if (state.products.length > 0) {
-        const product = state.products.find(p => p.id === parseInt(productId))
+        const product = state.products.find((p: any) => p.id === numericProductId)
         if (product) {
           commit('SET_CURRENT_PRODUCT', product)
           commit('SET_LOADING', false)
@@ -100,24 +104,24 @@ export default new Vuex.Store({
       // Otherwise, get the specific product
       setTimeout(() => {
         const products = generateProductsData()
-        const product = products.find(p => p.id === parseInt(productId))
+        const product = products.find(p => p.id === numericProductId)
         commit('SET_CURRENT_PRODUCT', product)
         commit('SET_LOADING', false)
       }, 500)
     },
-    addToCart({ commit }, payload) {
+    addToCart({ commit }: { commit: any }, payload: any) {
       commit('ADD_TO_CART', payload)
     },
-    updateCartItem({ commit }, payload) {
+    updateCartItem({ commit }: { commit: any }, payload: any) {
       commit('UPDATE_CART_ITEM', payload)
     },
-    removeFromCart({ commit }, payload) {
+    removeFromCart({ commit }: { commit: any }, payload: any) {
       commit('REMOVE_FROM_CART', payload)
     },
-    clearCart({ commit }) {
+    clearCart({ commit }: { commit: any }) {
       commit('CLEAR_CART')
     },
-    loadCart({ commit }) {
+    loadCart({ commit }: { commit: any }) {
       commit('LOAD_CART')
     }
   }
