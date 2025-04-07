@@ -35,14 +35,6 @@
     <footer>
       <div class="footer-container">
         <div class="footer-content">
-          <div class="footer-column">
-            <h3>Get in touch</h3>
-            <div class="footer-logo">
-              <img src="./assets/pakdrop.png" alt="pakdrop" width="150" />
-            </div>
-            <p>Plot No D1/3 Sector 21 K.I.A Karachi</p>
-            <a href="#">pakdrop@zontec.club</a>
-          </div>
 
           <div class="footer-column">
             <h3>Categories</h3>
