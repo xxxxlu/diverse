@@ -15,6 +15,9 @@
             <li>
               <router-link to="/">ALL</router-link>
             </li>
+            <li>
+              <router-link to="/contact">Contact Us</router-link>
+            </li>
           </ul>
         </nav>
         <div class="header-actions">
@@ -54,7 +57,7 @@
         </div>
 
         <div class="footer-bottom">
-          <p>Copyright © 2025 | Powered by Data Network Solutions (SMC-Private) Limited</p>
+          <p>Copyright © 2025 PakDrop. Powered by DATA TECH SOLUTIONS SMC PRIVATE LIMITED2,</p>
           <div class="payment-methods">
             <img src="./assets/easypaisa.png" alt="easypaisa" />
             <img src="./assets/Frame.png" alt="Frame" />

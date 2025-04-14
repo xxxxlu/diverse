@@ -12,25 +12,6 @@
         </p>
 
         <div class="contact-methods">
-          <div class="contact-method">
-            <div class="method-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="method-details">
-              <h3>Address</h3>
-              <p>Plot No D1/3 Sector 21 K.I.A Karachi, Pakistan</p>
-            </div>
-          </div>
-
-          <div class="contact-method">
-            <div class="method-icon">
-              <i class="fas fa-phone-alt"></i>
-            </div>
-            <div class="method-details">
-              <h3>Phone</h3>
-              <p><a href="tel:+923090554482">+92 309 055 4482</a></p>
-            </div>
-          </div>
 
           <div class="contact-method">
             <div class="method-icon">
@@ -38,7 +19,7 @@
             </div>
             <div class="method-details">
               <h3>Email</h3>
-              <p><a href="mailto:hr.diversestore@gmail.com">hr.diversestore@gmail.com</a></p>
+              <p><a href="#">pakdrop@pakdrop.club</a></p>
             </div>
           </div>
 
@@ -50,21 +31,6 @@
               <h3>Business Hours</h3>
               <p>Monday - Saturday: 9am - 6pm<br>Sunday: Closed</p>
             </div>
-          </div>
-        </div>
-
-        <div class="social-links">
-          <h3>Follow Us</h3>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/diverseactivewear" target="_blank" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/diverseactivewear/" target="_blank" class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.tiktok.com/@diverseactive" target="_blank" class="social-icon">
-              <i class="fab fa-tiktok"></i>
-            </a>
           </div>
         </div>
       </div>
